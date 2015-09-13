@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router','userServiceModule']);
 
 
 app.config(function ($stateProvider, $urlRouterProvider){
@@ -9,7 +9,7 @@ app.config(function ($stateProvider, $urlRouterProvider){
 	.state('login', {
 		url : '/login',
 		templateUrl : 'login.html',
-		controller : function ($scope, $http, $state, $rootScope){
+		controller : function ($scope, $http, $state, userService){
 
 			//login functionality.
 			$scope.login = function(){
@@ -17,8 +17,10 @@ app.config(function ($stateProvider, $urlRouterProvider){
 				{
 					$http.post('/login', $scope.formdata)
 					.success(function (data){
-						console.log(data)
+						
 						if (data.loginFlag){
+							console.log(data);
+							userService.setUserData(data.user);
 							$state.go('main')
 						}
 					})
@@ -52,8 +54,10 @@ app.config(function ($stateProvider, $urlRouterProvider){
 	.state('main',{
 		url: '/main',
 		templateUrl: 'main.html',
-		controller: function ($scope, $http, $state, $rootScope){
+		controller: function ($scope, $http, $state, userService){
 
+			userService.getUserData();
+			console.log(userService.getUserData());
 
 		}
 	})
