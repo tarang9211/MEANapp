@@ -56,8 +56,7 @@ app.config(function ($stateProvider, $urlRouterProvider){
 		templateUrl: 'main.html',
 		controller: function ($scope, $http, $state, userService){
 
-			userService.getUserData();
-			console.log(userService.getUserData());
+			$scope.user = userService.getUserData()
 
 		}
 	})
