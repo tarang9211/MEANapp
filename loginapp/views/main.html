@@ -1,21 +1,21 @@
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
+		  <div class="">
+		  </div>
 		  <a class="navbar-brand" href="#">Username</a>
-		</div><!-- navbar-header-->
+		</div>
 	  	<ul class="nav navbar-nav navbar-right">
-		    <li><a href="">Gly. Icon</a></li>
-		    <li><a href="">Gly. Icon</a></li>
-		    <li><a href="">Gly. Icon</a></li>
+		    <li><a ui-sref="main.profile">Profile</a></li>
+		    <li><a ui-sref="">Messages</a></li>
+		    <li><a ui-sref="">Gly. Icon</a></li>
 	  	</ul>
-	</div><!-- container -->
+	</div>
 </nav>
 
-<!-- all content will go here -->
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			
-		</div>
-	</div>
+	<div ui-view></div>
 </div>
+
+
+

@@ -61,6 +61,14 @@ app.config(function ($stateProvider, $urlRouterProvider){
 		}
 	})
 
+	.state('main.profile', {
+		url: '/profile',
+		templateUrl: 'main.profile.html',
+		controller: function($scope){
+			
+		}
+	})
+
 
 });
 
