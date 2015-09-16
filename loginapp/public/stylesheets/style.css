@@ -1,5 +1,7 @@
+/*body has padding because menu is fixed*/
 body{
 	background-color: #eee;
+    padding-top: 60px;
 }
 
 .sign-in{

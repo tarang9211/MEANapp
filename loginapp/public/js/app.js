@@ -21,11 +21,11 @@ app.config(function ($stateProvider, $urlRouterProvider){
 						if (data.loginFlag){
 							console.log(data);
 							userService.setUserData(data.user);
-							$state.go('main')
+							$state.go('main');
 						}
 					})
 					.error(function (data){
-						console.log("Error", data)
+						console.log("Error", data);
 					});
 				} else {
 
@@ -58,13 +58,26 @@ app.config(function ($stateProvider, $urlRouterProvider){
 
 			$scope.user = userService.getUserData()
 
+			//logout
+			$scope.text = "value";
+			$scope.logout = function()
+			{
+				$http.get('/logout')
+				.success(function (data){
+					console.log(data);
+					$state.go('login');
+				})
+				.error( function (data){
+
+				});
+			}
 		}
 	})
 
 	.state('main.profile', {
 		url: '/profile',
 		templateUrl: 'main.profile.html',
-		controller: function($scope){
+		controller: function($scope, $http){
 			
 		}
 	})
