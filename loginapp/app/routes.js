@@ -4,6 +4,15 @@ module.exports = function(app, passport){
 	var sess = {};
 	var loginFlag =  false;
 
+	function loggedIn(req, res, next){
+		if (req.user){
+			next();
+		}
+		else{
+			console.log('else error');
+		}
+	}
+
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect: '/success',
 		failureRedirect: '/failure'
